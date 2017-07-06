@@ -12,9 +12,10 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    @cocktail = Cocktail.new(params[:cocktail])
+    @cocktail = Cocktail.new(params[:new_cocktail])
     @cocktail.save
 
+    link_to cocktails_path
   end
 
 end
