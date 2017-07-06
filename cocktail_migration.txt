@@ -1,0 +1,5 @@
+rails generate model Cocktail name:string has_many :ingredient, through: : dose
+
+rails generate model Dose description:text cocktail:references ingredients:references
+
+rails generate model Ingredient name:string has_many :cocktail, through: : dose
