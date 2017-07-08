@@ -25,3 +25,8 @@
 <br>
 
 <%= link_to 'New Cocktail', new_cocktail_path %>
+
+<%= form_for @cocktail do |c| %>
+<%= c.text_field : name  %>
+<%= c.submit %>
+<% end %>

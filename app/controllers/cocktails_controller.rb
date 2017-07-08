@@ -5,6 +5,7 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
+    @dose = Dose.new
   end
 
   def new
@@ -15,7 +16,7 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.new(params[:new_cocktail])
     @cocktail.save
 
-    link_to cocktails_path
+    redirect_to cocktails_path
   end
 
 end

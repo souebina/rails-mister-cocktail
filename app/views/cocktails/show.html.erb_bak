@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1><%= @cocktail.name %></h1>
+      <%= link_to 'Edit', edit_cocktail_path(@cocktail), class: "btn btn-primary" %>
+      <%= link_to 'Back', cocktails_path, class: "btn btn-primary" %>
+      <h3>Doses</h3>
+        <ul>
+         <% @cocktail.doses.each do |d| %>
+         <li><%= d.description  %> of <%= d.ingredient.name  %></li>
+
+        </ul>
+
+      <%= simple_form_for [@cocktail, Dose.new] do |f| %>
+        <%#= f.association :ingredient, value_method: :id,label_method: :name %>
+        <%= f.input :ingredient_id, collection: @ingredients  %>
+        <%= f.input :description %>
+        <%#= f.input :ingredient, collection: [0, 1, 2, 3, 4, 5], prompt: 'select ingredient' %>
+        <%= f.button :submit %>
+      <% end %>
+      <ul class="list-unstyled">
+ <!--        <%# @cocktail.reviews.each do |review| %>
+          <li class='padded-1em'>
+            <%# 5.times do |i| %>
+              <%# if i < review.rating %>
+                <i class="fa fa-star yellow"></i>
+              <%# else %>
+                <i class="fa fa-star gray"></i>
+              <%# end %>
+            <%# end %>
+            <%#= review.content %>
+          </li>
+        <%# end %> -->
+      </ul>
+    </div>
+  </div>
+</div>
